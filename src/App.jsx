@@ -1,5 +1,18 @@
+/* eslint-disable no-unused-vars */
+import { useEffect } from "react"
+import { getSpotifyToken } from "./spotifyAuth"
 
 function App() {
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getSpotifyToken();
+      console.log(data);
+      const response = fetch()
+      
+    }
+    fetchData()
+  }, [])
 
   return (
     <div>
