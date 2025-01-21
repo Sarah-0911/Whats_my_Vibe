@@ -4,13 +4,14 @@ import fetchTracks from "../utils/spotifyApi";
 
 export default function TracksList({ accessToken }) {
 
-  // useEffect(() => {
-  //   const getTracks = async () => {
-  //     const data = await fetchTracks(accessToken);
-  //     console.log(data);
-  //   }
-  //   getTracks();
-  // }, [accessToken])
+  console.log(accessToken);
+
+  useEffect(() => {
+    const getTracks = async () => {
+      await fetchTracks(accessToken);
+    }
+    getTracks();
+  }, [accessToken])
 
   return (
     <div>TracksList</div>
