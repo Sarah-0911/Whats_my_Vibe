@@ -1,4 +1,4 @@
-const fetchRecommendationsData = async (accessToken) => {
+const fetchTracks = async (accessToken) => {
   try {
     const response = await fetch("https://api.spotify.com//v1/recommendations?seed_genres=classical%2Ccountry", {
       headers: {
@@ -16,4 +16,4 @@ const fetchRecommendationsData = async (accessToken) => {
   }
 }
 
-export default fetchRecommendationsData;
+export default fetchTracks;

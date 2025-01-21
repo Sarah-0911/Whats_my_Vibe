@@ -19,9 +19,14 @@ export const getSpotifyToken = async () => {
     const response = await fetch(url, authOptions);
     if (!response.ok) throw new Error(`Erreur lors de la récupération du token`)
     const data = await response.json();
-    return data;
+
+    return {
+      accessToken: data.access_token,
+      expiresAt: Date.now() + data.expires_in * 1000
+    }
 
   } catch (error) {
     console.log(error);
+    return null;
   }
 }
