@@ -1,44 +1,38 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import fetchTracks from "../utils/spotifyApi";
 import TracksList from "./TracksList";
 
 export default function SearchInput({ accessToken }) {
 
+  const [searchQuery, setSearchQuery] = useState("");
   const [apiData, setApiData] = useState(null);
-  const [query, setQuery] = useState("");
 
-  const searchRef = useRef();
+  // console.log(accessToken);
 
-  console.log(accessToken);
-
-  useEffect(() => {
-    const getTracks = async () => {
-      const data = await fetchTracks(accessToken);
-      if (data) {
-        setApiData(data);
-        console.log(data);
-      }
-    }
-    getTracks();
-  }, [accessToken])
-
-
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setQuery(searchRef.target.value)
-  }
 
+    const data = await fetchTracks(accessToken, searchQuery);
+
+    if (data) {
+      setApiData(data);
+      console.log(data);
+    }
+    setSearchQuery("");
+  }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <input
-        ref={searchRef}
+        className="border border-slate-900"
+        onChange={(e) => setSearchQuery(e.target.value)}
+        value={searchQuery}
         type="text" />
         <button>Envoyer la liste</button>
       </form>
-      <TracksList />
+      {apiData && <TracksList tracks={apiData} />}
     </>
   )
 }

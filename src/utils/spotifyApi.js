@@ -8,8 +8,8 @@ const fetchTracks = async (accessToken, userInput) => {
 
     if (!response.ok) throw new Error(`Erreur lors de la récupération des données`)
 
-    const ApiData = await response.json();
-    return ApiData;
+    const apiData = await response.json();
+    return apiData;
 
   } catch (error) {
     console.log(error);
