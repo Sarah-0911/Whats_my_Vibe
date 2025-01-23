@@ -1,6 +1,6 @@
 import Track from "./Track"
 
-export default function TracksList({ apiData }) {
+export default function TracksList() {
 
   return (
     <ul>

@@ -1,23 +1,16 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react"
-import fetchTracks from "../utils/spotifyApi";
+import { useContext } from "react"
+import { UserContext } from "../context/UserContext";
 import TracksList from "./TracksList";
 
-export default function SearchInput({ accessToken }) {
+export default function SearchInput() {
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [apiData, setApiData] = useState(null);
+  const { apiData, searchQuery, setSearchQuery } = useContext(UserContext);
+  // console.log(tokenData.accessToken);
 
-  // console.log(accessToken);
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const data = await fetchTracks(accessToken, searchQuery);
-
-    if (data) {
-      setApiData(data);
-      console.log(data);
-    }
+    console.log(apiData);
     setSearchQuery("");
   }
 

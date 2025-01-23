@@ -21,18 +21,18 @@ export default function UserContextProvider(props) {
       const { accessToken, expiresAt } = await getSpotifyToken();
       if (isMounted) setTokenData({ accessToken, expiresAt });
     }
-
     fetchToken()
 
     return () => {
       isMounted = false;
-    }
 
+    }
   }, [tokenData])
 
   useEffect(() => {
     const fetchApiData = async() => {
       if (!tokenData || !tokenData.accessToken || !searchQuery) return;
+
       const data = await fetchTracks(tokenData.accessToken, searchQuery);
       setApiData(data);
     }
