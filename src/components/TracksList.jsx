@@ -1,30 +1,14 @@
-/* eslint-disable react/prop-types */
-import { useState, useEffect } from "react"
-import fetchTracks from "../utils/spotifyApi";
-
-export default function TracksList({ accessToken }) {
-
-  const [apiData, setApiData] = useState(null);
-
-  useEffect(() => {
-    const getTracks = async () => {
-      const data = await fetchTracks(accessToken);
-      if (data) {
-        setApiData(data);
-        console.log(data);
-      }
-    }
-    getTracks();
-  }, [accessToken])
+export default function TracksList() {
 
   return (
     <div>
-      {apiData && <ul>
+      {/* {apiData && <ul>
         <li>
           <p>{apiData.name}</p>
+          <p>{apiData.id}</p>
           <img src={apiData.icons[0].url} alt="" />
         </li>
-      </ul>}
+      </ul>} */}
     </div>
   )
 }

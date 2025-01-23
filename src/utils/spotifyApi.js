@@ -1,6 +1,6 @@
-const fetchTracks = async (accessToken) => {
+const fetchTracks = async (accessToken, userInput) => {
   try {
-    const response = await fetch("https://api.spotify.com/v1/browse/categories/dinner", {
+    const response = await fetch(`https://api.spotify.com/v1/search?q=${userInput}&type=track&market=FR&limit=5&include_external=audio`, {
       headers: {
       Authorization: `Bearer ${accessToken}`
       }
