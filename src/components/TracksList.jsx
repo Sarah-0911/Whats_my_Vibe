@@ -1,14 +1,14 @@
 import Track from "./Track"
 
-export default function TracksList() {
+export default function TracksList({ apiData }) {
+
+  apiData && console.log(apiData.tracks.items);
 
   return (
-    <ul>
-      {/* <li>
-        <p>{apiData.name}</p>
-        <p>{apiData.id}</p>
-        <img src={apiData.icons[0].url} alt="" />
-      </li> */}
-    </ul>
+    <>
+      {apiData && apiData.tracks.items.map(item => (
+        <Track key={item.id} itemData={item} />
+      ))}
+    </>
   )
 }

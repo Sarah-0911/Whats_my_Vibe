@@ -2,13 +2,11 @@
 import { useState, useEffect } from "react";
 import { UserContext } from "./UserContext";
 import getSpotifyToken from "../utils/spotifyAuth"
-import fetchTracks from "../utils/spotifyApi";
 
 export default function UserContextProvider(props) {
 
-  const [tokenData, setTokenData] = useState(null);
   const [apiData, setApiData] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [tokenData, setTokenData] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -29,19 +27,8 @@ export default function UserContextProvider(props) {
     }
   }, [tokenData])
 
-  useEffect(() => {
-    const fetchApiData = async() => {
-      if (!tokenData || !tokenData.accessToken || !searchQuery) return;
-
-      const data = await fetchTracks(tokenData.accessToken, searchQuery);
-      setApiData(data);
-    }
-    fetchApiData()
-  }, [tokenData, searchQuery])
-
-
   return (
-    <UserContext.Provider value={{ tokenData, apiData, searchQuery, setSearchQuery }}>
+    <UserContext.Provider value={{ tokenData, apiData, setApiData }}>
       {props.children}
     </UserContext.Provider>
   )

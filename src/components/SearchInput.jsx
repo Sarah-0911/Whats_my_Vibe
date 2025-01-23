@@ -1,16 +1,22 @@
-/* eslint-disable react/prop-types */
-import { useContext } from "react"
+import { useState, useContext } from "react"
 import { UserContext } from "../context/UserContext";
 import TracksList from "./TracksList";
+import fetchTracks from "../utils/spotifyApi"
 
 export default function SearchInput() {
 
-  const { apiData, searchQuery, setSearchQuery } = useContext(UserContext);
-  // console.log(tokenData.accessToken);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSubmit = (e) => {
+  const { tokenData, apiData, setApiData } = useContext(UserContext);
+  // console.log(tokenData);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(apiData);
+
+    if (!tokenData || !tokenData.accessToken) return;
+
+    const data = await fetchTracks(tokenData.accessToken, searchQuery);
+    setApiData(data);
     setSearchQuery("");
   }
 
@@ -24,7 +30,9 @@ export default function SearchInput() {
         type="text" />
         <button>Envoyer la liste</button>
       </form>
-      {apiData && <TracksList tracks={apiData} />}
+      <ul className="border border-slate-800 w-[600px]">
+      {apiData && <TracksList apiData={apiData} />}
+      </ul>
     </>
   )
 }
