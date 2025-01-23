@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
-import { getSpotifyToken } from "../utils/spotifyAuth"
 import { UserContext } from "./UserContext";
+import getSpotifyToken from "../utils/spotifyAuth"
+import fetchTracks from "../utils/spotifyApi";
 
 export default function UserContextProvider(props) {
 
   const [tokenData, setTokenData] = useState(null);
+  const [apiData, setApiData] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     let isMounted = true;
@@ -27,8 +30,18 @@ export default function UserContextProvider(props) {
 
   }, [tokenData])
 
+  useEffect(() => {
+    const fetchApiData = async() => {
+      if (!tokenData || !tokenData.accessToken || !searchQuery) return;
+      const data = await fetchTracks(tokenData.accessToken, searchQuery);
+      setApiData(data);
+    }
+    fetchApiData()
+  }, [tokenData, searchQuery])
+
+
   return (
-    <UserContext.Provider value={tokenData}>
+    <UserContext.Provider value={{ tokenData, apiData, searchQuery, setSearchQuery }}>
       {props.children}
     </UserContext.Provider>
   )

@@ -12,7 +12,6 @@ export default function SearchInput({ accessToken }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const data = await fetchTracks(accessToken, searchQuery);
 
     if (data) {

@@ -1,7 +1,7 @@
 const clientId = import.meta.env.VITE_CLIENT_ID;
 const clientSecret = import.meta.env.VITE_CLIENT_SECRET;
 
-export const getSpotifyToken = async () => {
+const getSpotifyToken = async () => {
   const url = "https://accounts.spotify.com/api/token";
 
   const authOptions = {
@@ -30,3 +30,5 @@ export const getSpotifyToken = async () => {
     return null;
   }
 }
+
+export default getSpotifyToken;
