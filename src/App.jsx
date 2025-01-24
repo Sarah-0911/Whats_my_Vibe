@@ -3,8 +3,11 @@ import SearchInput from "./components/SearchInput";
 function App () {
 
   return (
-    <div>
-      <h1 className='text-slate-800 font-bold text-xl text-center'>What&apos;s my Vibe</h1>
+    <div className="m-4">
+      <div className="text-center">
+        <h1 className='text-slate-800 font-bold text-xl'>Track Hunt</h1>
+        <p className="font-barlow italic text-xl">dive into the music</p>
+      </div>
       <SearchInput />
     </div>
   )

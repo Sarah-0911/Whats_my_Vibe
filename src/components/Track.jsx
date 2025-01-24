@@ -11,6 +11,8 @@ export default function Track({ itemData }) {
       alt={`${itemData.album.name} ${itemData.album.type}`} />
       <p>{itemData.name}</p>
       <p>{itemData.artists[0].name}</p>
+      <p>Popularité</p>
+      <p>Ecouter sur Spotify</p>
     </li>
   )
 }
