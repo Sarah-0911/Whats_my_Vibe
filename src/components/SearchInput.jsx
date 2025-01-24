@@ -23,13 +23,19 @@ export default function SearchInput() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form
+      onSubmit={handleSubmit}
+      className="flex flex-col m-8 items-center mx-auto">
         <input
-        className="border border-slate-900"
+        className="border min-[450px]:w-[400px] md:w-[600px] border-slate-900 rounded p-2"
         onChange={(e) => setSearchQuery(e.target.value)}
         value={searchQuery}
         type="text" />
-        <button>Envoyer la liste</button>
+        <button
+         className="mt-4 rounded text-xl font-semibold bg-slate-600 hover:bg-slate-700 text-slate-100 lowercase font-manrope px-8 py-2"
+         style={{fontVariant: "small-caps"}}>
+          Explore Now
+        </button>
       </form>
       {apiData && <TracksList apiData={apiData} />}
     </>
