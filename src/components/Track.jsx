@@ -5,8 +5,12 @@ export default function Track({ itemData }) {
 
   return (
     <li>
-      <img src={itemData.album.images[0].url} alt="" />
-      <p>{itemData.album.album_type}</p>
+      <img
+      className="rounded w-60"
+      src={itemData.album.images[1].url}
+      alt={`${itemData.album.name} ${itemData.album.type}`} />
+      <p>{itemData.name}</p>
+      <p>{itemData.artists[0].name}</p>
     </li>
   )
 }

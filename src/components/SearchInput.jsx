@@ -11,6 +11,7 @@ export default function SearchInput() {
   // console.log(tokenData);
 
   const handleSubmit = async (e) => {
+    setApiData(null)
     e.preventDefault();
 
     if (!tokenData || !tokenData.accessToken) return;
@@ -30,9 +31,7 @@ export default function SearchInput() {
         type="text" />
         <button>Envoyer la liste</button>
       </form>
-      <ul className="border border-slate-800 w-[600px]">
       {apiData && <TracksList apiData={apiData} />}
-      </ul>
     </>
   )
 }

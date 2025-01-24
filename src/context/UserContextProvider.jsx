@@ -23,7 +23,6 @@ export default function UserContextProvider(props) {
 
     return () => {
       isMounted = false;
-
     }
   }, [tokenData])
 
