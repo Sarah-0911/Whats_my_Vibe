@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { UserContext } from "./UserContext";
 import getSpotifyToken from "../utils/spotifyAuth"
@@ -23,6 +22,7 @@ export default function UserContextProvider(props) {
 
     return () => {
       isMounted = false;
+
     }
   }, [tokenData])
 

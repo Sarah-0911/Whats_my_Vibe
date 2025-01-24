@@ -1,13 +1,12 @@
 import { useState, useContext } from "react"
 import { UserContext } from "../context/UserContext";
-import TracksList from "./TracksList";
 import fetchTracks from "../utils/spotifyApi"
 
 export default function SearchInput() {
 
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { tokenData, apiData, setApiData } = useContext(UserContext);
+  const { tokenData, setApiData } = useContext(UserContext);
   // console.log(tokenData);
 
   const handleSubmit = async (e) => {
@@ -37,7 +36,6 @@ export default function SearchInput() {
           Explore Now
         </button>
       </form>
-      {apiData && <TracksList apiData={apiData} />}
     </>
   )
 }
