@@ -8,7 +8,9 @@ export default {
     extend: {
       fontFamily: {
         barlow: ["Barlow Condensed", "sans-serif"],
-        manrope: ["Manrope", "sans-serif"]
+        manrope: ["Manrope", "sans-serif"],
+        expletus: ["Expletus Sans", "sans-serif"],
+        bungee: ["Bungee Inline", "sans-serif"]
       }
     },
   },
