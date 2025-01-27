@@ -24,7 +24,7 @@ export default function SearchInput() {
     <>
       <form
       onSubmit={handleSubmit}
-      className="flex flex-col mt-8 ml-2 items-start">
+      className="flex flex-col mt-8 ml-2 items-center sm:items-start">
         <input
         className="border sm:w-[440px] border-slate-900 rounded p-2"
         onChange={(e) => setSearchQuery(e.target.value)}

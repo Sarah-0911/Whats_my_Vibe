@@ -10,7 +10,8 @@ export default {
         barlow: ["Barlow Condensed", "sans-serif"],
         manrope: ["Manrope", "sans-serif"],
         expletus: ["Expletus Sans", "sans-serif"],
-        bungee: ["Bungee Inline", "sans-serif"]
+        bungee: ["Bungee Inline", "sans-serif"],
+        italianno: ["Italianno", "sans-serif"]
       }
     },
   },
