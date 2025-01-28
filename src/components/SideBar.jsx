@@ -14,7 +14,7 @@ export default function SideBar() {
         <span className="block">inspired by your words.</span>
       </p>
     </div>
-    <img className="w-14 h-14 absolute top-64 -left-7 z-40 hover:animate-spin" src={vinyl} alt="vinyl icon" />
+    {/* <img className="w-14 h-14 absolute top-64 -left-7 z-40 hover:animate-spin" src={vinyl} alt="vinyl icon" /> */}
   </div>
   )
 }
