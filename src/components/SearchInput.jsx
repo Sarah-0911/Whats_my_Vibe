@@ -21,21 +21,19 @@ export default function SearchInput() {
   }
 
   return (
-    <>
-      <form
-      onSubmit={handleSubmit}
-      className="flex flex-col mt-8 ml-2 items-center sm:items-start">
-        <input
-        className="border sm:w-[440px] border-slate-900 rounded p-2"
-        onChange={(e) => setSearchQuery(e.target.value)}
-        value={searchQuery}
-        type="text" />
-        <button
-         className="mt-4 rounded text-xl font-semibold bg-indigo-600 hover:bg-indigo-700 text-slate-100 lowercase font-manrope px-8 py-2"
-         style={{fontVariant: "small-caps"}}>
-          Explore Now
-        </button>
-      </form>
-    </>
+    <form
+    onSubmit={handleSubmit}
+    className="flex flex-col mt-8 ml-2 items-center sm:items-start">
+      <input
+      className="border sm:w-[440px] border-slate-900 rounded p-2"
+      onChange={(e) => setSearchQuery(e.target.value)}
+      value={searchQuery}
+      type="text" />
+      <button
+        className="mt-4 rounded text-xl font-semibold bg-gradient-to-r from-indigo-700 to-teal-600 text-slate-100 lowercase font-manrope px-8 py-2"
+        style={{fontVariant: "small-caps"}}>
+        Explore Now
+      </button>
+    </form>
   )
 }
