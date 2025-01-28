@@ -30,7 +30,7 @@ export default function SearchInput() {
       value={searchQuery}
       type="text" />
       <button
-        className="mt-4 rounded z-50 text-xl font-semibold bg-gradient-to-r from-indigo-700 to-teal-600 text-slate-100 lowercase font-manrope px-8 py-2"
+        className="mt-4 rounded z-50 text-xl font-semibold bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 text-slate-100 lowercase font-manrope px-8 py-2"
         style={{fontVariant: "small-caps"}}>
         Explore Now
       </button>
