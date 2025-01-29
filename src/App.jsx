@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { UserContext } from "./context/UserContext";
 import SearchInput from "./components/SearchInput";
 import TracksList from "./components/TracksList";
-import SideBar from "./components/SideBar";
-import { audioTape, djembe, eighthNote, eighthNotes, guitar, harmonica, headphones, mike, note, recordPlayer, sticks, tuningFork } from "./assets/musicDoodle";
+// import SideBar from "./components/SideBar";
+import Doodle from "./components/Doodle";
 
 function App () {
 
@@ -20,7 +20,7 @@ function App () {
         generate tracks from your words.
         </p>
         <SearchInput />
-        <img className="absolute w-80 h-auto" src={audioTape} alt="" />
+      <Doodle />
       </div>
     {/* <SideBar /> */}
     </div>
