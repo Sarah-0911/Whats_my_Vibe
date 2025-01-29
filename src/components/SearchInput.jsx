@@ -23,14 +23,14 @@ export default function SearchInput() {
   return (
     <form
     onSubmit={handleSubmit}
-    className="flex flex-col mt-8 ml-2 items-center sm:items-start">
+    className="flex flex-col mt-8 ml-2 items-center">
       <input
       className="z-50 border sm:w-[440px] border-slate-900 rounded p-2"
       onChange={(e) => setSearchQuery(e.target.value)}
       value={searchQuery}
       type="text" />
       <button
-        className="mt-4 rounded-full z-50 text-xl font-semibold bg-slate-900 text-orange-200 lowercase font-manrope px-8 py-2"
+        className="mt-4 rounded-full z-50 text-xl font-semibold  lowercase font-manrope px-8 py-2 bg-slate-900 text-orange-200 hover:bg-orange-200 hover:text-slate-900 hover:outline hover:outline-[1px] hover:outline-orange-200 hover:duration-200"
         style={{fontVariant: "small-caps"}}>
         Explore Now
       </button>
