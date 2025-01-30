@@ -1,4 +1,5 @@
-/* eslint-disable react/prop-types */
+import ProgressBar from "./ProgressBar";
+
 export default function Track({ itemData }) {
 
   console.log(itemData);
@@ -12,8 +13,8 @@ export default function Track({ itemData }) {
       <div className="mt-2">
         <p className="font-barlow tracking-wide font-semibold text-lg text-slate-900">{itemData.name}</p>
         <p className="font-barlow font-medium text-[#e95d41]">{itemData.artists[0].name}</p>
-        <p className="mt-1">Popularité</p>
-        <p className="font-barlow">Ecouter sur Spotify</p>
+        <ProgressBar popularity={itemData.popularity} />
+        <p className="mt-2 font-barlow">Ecouter sur Spotify</p>
       </div>
     </li>
   )
