@@ -25,7 +25,7 @@ export default function SearchInput() {
     onSubmit={handleSubmit}
     className="flex flex-col mt-8 ml-2 items-center">
       <input
-      className="z-50 border md:w-[440px] border-slate-900 rounded p-2"
+      className="z-50 border md:w-[440px] border-slate-900 focus:outline-slate-600 rounded p-2 text-slate-900"
       onChange={(e) => setSearchQuery(e.target.value)}
       value={searchQuery}
       type="text" />

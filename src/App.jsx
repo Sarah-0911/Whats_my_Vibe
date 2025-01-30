@@ -10,7 +10,7 @@ function App () {
 
   return (
     <div className="bg-slate-900">
-      <div className="flex flex-col justify-center h-screen pt-28 bg-[#e95d41] text-center shadow-[0_0_15px_5px_#000000]">
+      <div className="flex flex-col justify-center h-screen pt-28 px-6 bg-[#e95d41] text-center shadow-[0_0_15px_5px_#000000]">
         <h1 className='text-slate-900 font-medium font-limelight uppercase text-5xl md:text-[82px] drop-shadow-lg'>
           What&apos;s my vibe
         </h1>
