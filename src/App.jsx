@@ -20,11 +20,13 @@ function App () {
         </p>
         <SearchInput />
         <Doodle />
-        {loader && <div className="absolute bottom-40 md:bottom-2 left-1/2 -translate-x-[45%] w-20 h-20">
-          <DotLottieReact
-          src="https://lottie.host/f8a58e00-a87a-408c-8a8b-badeff41a461/0sbeujX9Ww.lottie"
-          loop
-          autoplay />
+        {loader && <div className="absolute inset-0 bg-orange-200/45 flex justify-center items-end transition-duration-200">
+          <div className="w-14 h-14 mb-44 md:mb-6">
+            <DotLottieReact
+            src="https://lottie.host/593cfd5d-abe7-41cd-9690-959b0c86eae6/bfjcuW1s4G.lottie"
+            loop
+            autoplay />
+          </div>
         </div>}
         {errorMsg && <p className="mt-4 text-xl text-slate-900 font-medium font-barlow tracking-wide">
           Oops! No matches. Try a different search!
