@@ -6,6 +6,7 @@ export default function UserContextProvider(props) {
 
   const [apiData, setApiData] = useState(null);
   const [tokenData, setTokenData] = useState(null);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -22,12 +23,12 @@ export default function UserContextProvider(props) {
 
     return () => {
       isMounted = false;
-
     }
+
   }, [tokenData])
 
   return (
-    <UserContext.Provider value={{ tokenData, apiData, setApiData }}>
+    <UserContext.Provider value={{ tokenData, apiData, setApiData, loader, setLoader }}>
       {props.children}
     </UserContext.Provider>
   )

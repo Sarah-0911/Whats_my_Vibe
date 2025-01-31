@@ -6,17 +6,20 @@ export default function SearchInput() {
 
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { tokenData, setApiData } = useContext(UserContext);
+  const { tokenData, setApiData, setLoader } = useContext(UserContext);
   // console.log(tokenData);
 
   const handleSubmit = async (e) => {
-    setApiData(null)
     e.preventDefault();
+    setApiData(null)
+    setLoader(true)
 
     if (!tokenData || !tokenData.accessToken) return;
 
     const data = await fetchTracks(tokenData.accessToken, searchQuery);
-    setApiData(data);
+    if(data) setApiData(data);
+
+    setLoader(false)
     setSearchQuery("");
   }
 
