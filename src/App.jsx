@@ -21,7 +21,7 @@ function App () {
         <SearchInput />
         <Doodle />
         {loader && <div className="absolute inset-0 bg-orange-200/45 flex justify-center items-end transition-duration-200">
-          <div className="w-14 h-14 mb-44 md:mb-6">
+          <div className="w-14 h-14 mb-24 md:mb-6">
             <DotLottieReact
             src="https://lottie.host/593cfd5d-abe7-41cd-9690-959b0c86eae6/bfjcuW1s4G.lottie"
             loop
