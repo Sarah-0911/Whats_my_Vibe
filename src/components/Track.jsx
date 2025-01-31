@@ -7,7 +7,7 @@ export default function Track({ itemData }) {
   return (
     <li className="p-2 shadow-xl bg-slate-200 rounded">
       <img
-      className="rounded"
+      className="rounded mx-auto"
       src={itemData.album.images[1].url}
       alt={`${itemData.album.name} ${itemData.album.type}`} />
       <div className="mt-2">

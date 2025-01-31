@@ -7,7 +7,7 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 function App () {
 
-  const { apiData, loader } = useContext(UserContext);
+  const { apiData, loader, errorMsg } = useContext(UserContext);
 
   return (
     <div className="bg-slate-800">
@@ -20,12 +20,15 @@ function App () {
         </p>
         <SearchInput />
         <Doodle />
-        {loader && <div className="absolute bottom-2 left-1/2 -translate-x-[45%] w-20 h-20">
+        {loader && <div className="absolute bottom-40 md:bottom-2 left-1/2 -translate-x-[45%] w-20 h-20">
           <DotLottieReact
-          src="https://lottie.host/dde87a4e-aec3-40c2-89e8-8afae65e8d4a/gefVMtH7A8.lottie"
+          src="https://lottie.host/f8a58e00-a87a-408c-8a8b-badeff41a461/0sbeujX9Ww.lottie"
           loop
           autoplay />
         </div>}
+        {errorMsg && <p className="mt-4 text-xl text-slate-900 font-medium font-barlow tracking-wide">
+          Oops! No matches. Try a different search!
+        </p>}
       </div>
     {apiData && <TracksList apiData={apiData} />}
     </div>
