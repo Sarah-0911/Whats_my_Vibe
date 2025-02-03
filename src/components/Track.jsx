@@ -5,7 +5,7 @@ export default function Track({ itemData }) {
   // console.log(itemData);
 
   return (
-    <li className="p-2 shadow-xl bg-slate-200 rounded">
+    <li className="p-2 shadow-xl bg-slate-200 rounded overflow-hidden">
       <img
       className="rounded mx-auto"
       src={itemData.album.images[1].url}

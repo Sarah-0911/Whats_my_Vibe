@@ -12,13 +12,11 @@ export default function TracksList({ apiData }) {
     console.log({searchQuery});
     const newOffset = offsetData + 10;
 
-    // if (newOffset > 50) {
-    //     button.className("hidden")
-    // }
-
     setOffsetData(newOffset);
     if (searchQuery){
       const data = await fetchTracks(tokenData.accessToken, searchQuery, newOffset);
+
+      console.log(data);
 
       setApiData(prevState => ({
         ...prevState,
@@ -30,6 +28,8 @@ export default function TracksList({ apiData }) {
     }
     console.log(newOffset);
   }
+
+  const noMoreMatches = offsetData >= apiData.tracks.total;
 
   return (
     <div className="bg-slate-800 min-h-screen p-8">
@@ -43,10 +43,13 @@ export default function TracksList({ apiData }) {
       </ul>
       <button
       onClick={handleShowMore}
-      className="block mx-auto rounded-full text-xl font-semibold lowercase font-manrope px-8 py-2 bg-slate-900 text-orange-200 hover:bg-orange-200 hover:text-slate-900 hover:outline hover:outline-[1px] hover:outline-orange-200 duration-300"
+      className={`block mx-auto rounded-full text-xl font-semibold lowercase font-manrope px-8 py-2 bg-slate-900 text-orange-200 hover:bg-orange-200 hover:text-slate-900 hover:outline hover:outline-[1px] hover:outline-orange-200 duration-300 ${noMoreMatches ? "hidden" : ""}`}
       style={{fontVariant: "small-caps"}}>
         Show More
     </button>
+    {noMoreMatches && <p className="text-orange-200 font-manrope text-center font-semibold text-lg animate-fadeIn animate-bounce">
+      No more tracks to show !
+      </p>}
     </ div>
   )
 }
