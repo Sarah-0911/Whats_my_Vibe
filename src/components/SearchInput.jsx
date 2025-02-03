@@ -39,7 +39,7 @@ export default function SearchInput() {
       value={searchQuery}
       type="text" />
       <button
-        className="mt-4 rounded-full z-50 text-xl font-semibold  lowercase font-manrope px-8 py-2 bg-slate-900 text-orange-200 hover:bg-orange-200 hover:text-slate-900 hover:outline hover:outline-[1px] hover:outline-orange-200 hover:duration-200"
+        className="mt-4 rounded-full z-50 text-xl font-semibold  lowercase font-manrope px-8 py-2 bg-slate-900 text-orange-200 hover:bg-orange-200 hover:text-slate-900 hover:outline hover:outline-[1px] hover:outline-orange-200 duration-300"
         style={{fontVariant: "small-caps"}}>
           Explore Now
       </button>
