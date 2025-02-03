@@ -6,6 +6,7 @@ export default function UserContextProvider(props) {
 
   const [apiData, setApiData] = useState(null);
   const [tokenData, setTokenData] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const [loader, setLoader] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
 
@@ -29,7 +30,7 @@ export default function UserContextProvider(props) {
   }, [tokenData])
 
   return (
-    <UserContext.Provider value={{ tokenData, apiData, setApiData, loader, setLoader, errorMsg, setErrorMsg }}>
+    <UserContext.Provider value={{ tokenData, apiData, setApiData, loader, setLoader, errorMsg, setErrorMsg, searchQuery, setSearchQuery }}>
       {props.children}
     </UserContext.Provider>
   )

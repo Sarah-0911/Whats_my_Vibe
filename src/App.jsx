@@ -10,7 +10,7 @@ function App () {
   const { apiData, loader, errorMsg } = useContext(UserContext);
 
   return (
-    <div className="bg-slate-800">
+    <div className="bg-slate-800 min-h-screen">
       <div className="flex flex-col justify-center relative h-screen pt-28 px-6 bg-[#e06b4d] text-center shadow-[0_0_15px_5px_#000000]">
         <h1 className='text-slate-900 font-medium font-limelight uppercase text-5xl md:text-7xl drop-shadow-lg'>
           What&apos;s my vibe

@@ -4,9 +4,7 @@ import fetchTracks from "../utils/spotifyApi"
 
 export default function SearchInput() {
 
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const { tokenData, setApiData, setLoader, setErrorMsg } = useContext(UserContext);
+  const { tokenData, setApiData, setLoader, setErrorMsg, searchQuery, setSearchQuery } = useContext(UserContext);
   // console.log(tokenData);
 
   const handleSubmit = async (e) => {
@@ -26,7 +24,7 @@ export default function SearchInput() {
     }
 
     setLoader(false)
-    setSearchQuery("");
+    // setSearchQuery("");
   }
 
   return (
