@@ -12,6 +12,10 @@ export default {
         expletus: ["Expletus Sans", "sans-serif"],
         limelight: ["Limelight", "sans-serif"],
         poiret: ["Poiret One", "sans-serif"]
+      },
+      animation: {
+        fadeInOut: "fadeInOut 3s infinite ease-in-out",
+        float: "float 4s infinite ease-in-out",
       }
     },
   },
