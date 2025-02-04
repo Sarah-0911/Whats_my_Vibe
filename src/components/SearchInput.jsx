@@ -1,8 +1,8 @@
-import { useState, useContext } from "react"
+import { useContext } from "react"
 import { UserContext } from "../context/UserContext";
-import fetchTracks from "../utils/spotifyApi"
+import fetchTracks from "../utils/spotifyApi";
 
-export default function SearchInput() {
+export default function SearchInput({ scrollToTracksList }) {
 
   const { tokenData, setApiData, setLoader, setErrorMsg, searchQuery, setSearchQuery } = useContext(UserContext);
   // console.log(tokenData);
@@ -19,6 +19,7 @@ export default function SearchInput() {
 
     if(data) {
       setApiData(data);
+      scrollToTracksList();
     } else {
       setErrorMsg(true);
     }

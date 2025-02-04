@@ -1,9 +1,9 @@
 import Track from "./Track"
-import { useState, useContext } from "react"
+import { useState, useContext, forwardRef } from "react"
 import { UserContext } from "../context/UserContext";
 import fetchTracks from "../utils/spotifyApi"
 
-export default function TracksList({ apiData }) {
+function TracksList ({ apiData }, ref) {
 
   const [offsetData, setOffsetData] = useState(0);
   const { tokenData, setApiData, searchQuery } = useContext(UserContext);
@@ -32,7 +32,7 @@ export default function TracksList({ apiData }) {
   const noMoreMatches = offsetData >= apiData.tracks.total;
 
   return (
-    <div className="bg-slate-800 min-h-screen p-8">
+    <div ref={ref} className="bg-slate-800 min-h-screen p-8">
       <ul
       className="p-8 grid min-[450px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
         {apiData && [...apiData.tracks.items]
@@ -53,3 +53,5 @@ export default function TracksList({ apiData }) {
     </ div>
   )
 }
+
+export default forwardRef(TracksList);
