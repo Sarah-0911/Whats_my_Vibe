@@ -52,5 +52,3 @@ function App () {
 }
 
 export default App
-
-// #647bd8 (blue gradient) #e06b4d (orange de base)
