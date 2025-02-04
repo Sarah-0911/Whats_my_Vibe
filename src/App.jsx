@@ -12,16 +12,15 @@ function App () {
   const tracksListRef = useRef(null);
 
   const scrollToTracksList = () => {
-    if (tracksListRef.current && apiData?.tracks?.items?.length <= 10) {
+    if (tracksListRef.current) {
        tracksListRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }
 
   useEffect(() => {
-    if (apiData) {
-      scrollToTracksList();
-    }
+    if (apiData?.tracks?.items?.length <= 10) scrollToTracksList();
   }, [apiData])
+
 
   return (
     <div className="bg-slate-800 min-h-screen">
@@ -32,7 +31,7 @@ function App () {
         <p className="mt-1 font-poiret font-semibold text-lg md:text-3xl drop-shadow-sm tracking-wider text-orange-200">
           generate tracks from your words.
         </p>
-        <SearchInput scrollToTracksList={scrollToTracksList} />
+        <SearchInput />
         <Doodle />
         {loader && <div className="absolute inset-0 bg-orange-200/45 flex justify-center items-end transition-duration-200">
           <div className="w-14 h-14 mb-24 md:mb-6">
