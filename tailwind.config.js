@@ -9,9 +9,9 @@ export default {
       fontFamily: {
         barlow: ["Barlow Condensed", "sans-serif"],
         manrope: ["Manrope", "sans-serif"],
-        expletus: ["Expletus Sans", "sans-serif"],
         limelight: ["Limelight", "sans-serif"],
-        poiret: ["Poiret One", "sans-serif"]
+        poiret: ["Poiret One", "sans-serif"],
+        dot: ["42dot Sans", "sans-serif"]
       },
       animation: {
         fadeInOut: "fadeInOut 3s infinite ease-in-out",
