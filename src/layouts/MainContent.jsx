@@ -1,23 +1,19 @@
-import { useContext, useEffect, useRef } from "react";
-import { UserContext } from "../context/UserContext";
 import TracksList from "../components/TracksList/TracksList";
+import FilterBy from "../components/FilterBy";
+import Favorites from "../components/Favorites";
+import { forwardRef } from "react";
 
-export default function MainContent() {
-
-  const { apiData } = useContext(UserContext);
-  const tracksListRef = useRef(null);
-
-  const scrollToTracksList = () => {
-    if (tracksListRef.current) tracksListRef.current.scrollIntoView({ behavior: "smooth" });
-  }
-
-  useEffect(() => {
-    if (apiData?.tracks?.items?.length <= 10) scrollToTracksList();
-  }, [apiData])
+function MainContent(props, ref) {
 
   return (
-    <main className="bg-slate-800 min-h-screen p-8">
-      {apiData && <TracksList apiData={apiData} ref={tracksListRef} />}
+    <main ref={ref} className="bg-slate-800 min-h-screen p-8">
+      <div className="flex justify-end gap-6 text-slate-200 font-dot">
+        <FilterBy />
+        <Favorites />
+      </div>
+      <TracksList />
     </ main>
   )
 }
+
+export default forwardRef(MainContent)
