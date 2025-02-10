@@ -14,7 +14,7 @@ export default function ProgressBar({ popularity }) {
   ]
 
   return (
-    <div className="mt-2 max-w-[8rem] flex items-center gap-x-1">
+    <div className="mt-3 max-w-[8rem] flex items-center gap-x-1">
       {(popularity || popularity === 0) && steps.map((step, index) => {
         return <div key={index} className={`w-full h-2 transition duration-500 ${popularity > step.value ? step.color : "border border-slate-400/75"}`}></div>
       })

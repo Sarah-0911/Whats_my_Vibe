@@ -6,7 +6,7 @@ export default function Track({ itemData }) {
   // console.log(itemData);
 
   return (
-    <li className="flex flex-col p-2 overflow-hidden bg-gradient-to-b from-slate-700 to-slate-800 rounded-sm">
+    <li className="flex flex-col p-4 overflow-hidden bg-gradient-to-b from-slate-600 to-black rounded-lg transition-all duration-300">
       <img
       className="rounded-sm mx-auto shadow-md shadow-slate-900"
       src={itemData.album.images[1].url}
@@ -25,7 +25,7 @@ export default function Track({ itemData }) {
           <a
           href={itemData.external_urls.spotify}
           target="_blank"
-          className="flex items-center gap-2 mt-4 mb-1 font-barlow uppercase text-sm font-medium  pb-2 text-orange-200 hover:-translate-y-1 duration-300"
+          className="flex items-center gap-2 mt-4 mb-1 font-barlow uppercase text-sm font-medium pb-2 text-orange-200 hover:-translate-y-0.5 duration-300"
           rel="noopener noreferrer">
             play on
             <img className="w-5 h-5" src="images/spotify.png" alt="spotify icon" />

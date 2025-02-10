@@ -34,7 +34,7 @@ export default function TracksList () {
   return (
     <div>
       <ul
-      className="p-8 grid min-[450px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+      className="px-8 pt-2 pb-8 grid min-[450px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
         {apiData && [...apiData.tracks.items]
         .sort((a, b) => b.popularity - a.popularity)
         .map(item => (

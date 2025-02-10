@@ -1,11 +1,11 @@
-import fullHeart from "../../assets/fullHeart.svg"
-
+// import fullHeart from "../../assets/fullHeart.svg"
+import emptyHeart from "../../assets/emptyHeart.svg"
 
 export default function Favorites() {
   return (
         <div>
-          <button className="flex items-center gap-1 text-orange-200 cursor-pointer">
-            <img className="w-4 h-3" src={fullHeart} alt="heart icon" />
+          <button className="flex items-center gap-1 cursor-pointer group">
+            <img className="w-5 h-4 group-hover:scale-110 duration-200" src={emptyHeart} alt="heart icon" />
             <span>Favorites</span>
           </button>
         </div>
