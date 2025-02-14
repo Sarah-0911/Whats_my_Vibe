@@ -45,7 +45,7 @@ export default function TracksList () {
       onClick={handleShowMore}
       className={`block mx-auto relative mt-4 rounded-full z-50 text-xl font-semibold lowercase font-manrope px-8   py-2 bg-slate-900 text-orange-200 overflow-hidden
       before:absolute before:inset-0 before:bg-orange-200
-      before:w-0 before:duration-300 before:ease-in-out
+      before:w-0 before:duration-500 before:ease-in-out
       hover:before:w-full hover:text-slate-900 ${noMoreMatches ? "hidden" : ""}`}
       style={{fontVariant: "small-caps"}}>
         <span className="relative z-10">Show More</span>
