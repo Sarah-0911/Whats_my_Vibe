@@ -9,6 +9,7 @@ export default function UserContextProvider(props) {
   const [searchQuery, setSearchQuery] = useState("");
   const [loader, setLoader] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
+  const [sortCategory, setSortCategory] = useState("");
 
   useEffect(() => {
     let isMounted = true;
@@ -30,7 +31,7 @@ export default function UserContextProvider(props) {
   }, [tokenData])
 
   return (
-    <UserContext.Provider value={{ tokenData, apiData, setApiData, loader, setLoader, errorMsg, setErrorMsg, searchQuery, setSearchQuery }}>
+    <UserContext.Provider value={{ tokenData, apiData, setApiData, loader, setLoader, errorMsg, setErrorMsg, searchQuery, setSearchQuery, sortCategory, setSortCategory }}>
       {props.children}
     </UserContext.Provider>
   )

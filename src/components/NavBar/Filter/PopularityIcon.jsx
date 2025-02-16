@@ -1,4 +1,4 @@
-export default function StarIcon() {
+export default function PopularityIcon() {
   return (
     <svg
     width="24"

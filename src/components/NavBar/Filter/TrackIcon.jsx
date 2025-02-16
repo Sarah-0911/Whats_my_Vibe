@@ -1,4 +1,4 @@
-export default function NoteIcon() {
+export default function TrackIcon() {
   return (
     <svg
     width="26"

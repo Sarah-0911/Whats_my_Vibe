@@ -1,8 +1,9 @@
+import React from "react";
 import { useState } from "react"
 import filter from "../../../assets/filter/filter.svg"
 import FilterItem from "./FilterItem";
-import StarIcon from "./StarIcon";
-import NoteIcon from "./NoteIcon";
+import PopularityIcon from "./PopularityIcon";
+import TrackIcon from "./TrackIcon";
 import ArtistIcon from "./ArtistIcon";
 import AlbumIcon from "./AlbumIcon";
 
@@ -12,7 +13,7 @@ export default function FilterBox() {
   const [items] = useState([
     {
       name: "Popularity",
-      icon: StarIcon
+      icon: PopularityIcon
     },
     {
       name: "Artist",
@@ -20,7 +21,7 @@ export default function FilterBox() {
     },
     {
       name: "Track",
-      icon: NoteIcon
+      icon: TrackIcon
     },
     {
       name: "Album",
@@ -37,13 +38,13 @@ export default function FilterBox() {
         className="w-6 h-5 group-hover:scale-110 duration-200"
         src={filter}
         alt="filter icon" />
-        <span className="ml-1">Filter</span>
+        <span className="ml-1">Sort by</span>
       </button>
 
       {showPopup && <div className="absolute top-10 -left-10 bg-slate-100 rounded p-2 min-w-[220px]">
         <div className="grid grid-cols-2 gap-2">
           {items.map((item, index) => {
-            return <FilterItem key={index} name={item.name} Icon={item.icon} />
+            return <FilterItem key={index} name={item.name} icon={React.createElement(item.icon)} />
           })
           }
         </div>
