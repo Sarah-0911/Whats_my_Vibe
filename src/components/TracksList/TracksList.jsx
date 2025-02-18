@@ -1,5 +1,5 @@
 import Track from "./Track"
-import { useState, useEffect, useContext } from "react"
+import { useState, useContext } from "react"
 import { UserContext } from "../../context/UserContext";
 import fetchTracks from "../../utils/spotifyApi"
 
@@ -8,43 +8,28 @@ export default function TracksList () {
   const [offsetData, setOffsetData] = useState(0);
   const { tokenData, searchQuery, apiData, setApiData, sortCategory } = useContext(UserContext);
 
-  useEffect(() => {
-    if (apiData) {
-      let sortedTracks = [...apiData.tracks.items];
-
-      switch(sortCategory) {
-        case "popularity":
-          sortedTracks.sort((a, b) => b.popularity - a.popularity);
-          break;
-        case "artist":
-          sortedTracks.sort((a, b) => a.artists[0].name.localeCompare(b.artists[0].name));
-          break;
-        case "track":
-          sortedTracks.sort((a, b) => a.name.localeCompare(b.name));
-          break;
-        case "album":
-          sortedTracks.sort((a, b) => a.album.name.localeCompare(b.album.name));
-          break;
-        default:
-          break;
-      }
-
-      setApiData(prevState => (
-        {...prevState, tracks: {...prevState.tracks, items: sortedTracks}}
-      ))
+  const sortedTracks = apiData ? [...apiData.tracks.items].sort((a, b) => {
+    switch(sortCategory) {
+      case "popularity":
+        return b.popularity - a.popularity;
+      case "artist":
+        return a.artists[0].name.localeCompare(b.artists[0].name);
+      case "track":
+        return a.name.localeCompare(b.name);
+      case "album":
+        return a.album.name.localeCompare(b.album.name);
+      default:
+        return 0;
     }
-
-  }, [setApiData, sortCategory])
+  }) : [];
 
   const handleShowMore = async() => {
     console.log({searchQuery});
     const newOffset = offsetData + 10;
-
     setOffsetData(newOffset);
+
     if (searchQuery){
       const data = await fetchTracks(tokenData.accessToken, searchQuery, newOffset);
-
-      // console.log(data);
 
       setApiData(prevState => ({
         ...prevState,
@@ -63,7 +48,7 @@ export default function TracksList () {
     <div>
       <ul
       className="px-12 pt-2 pb-8 grid min-[450px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-        {apiData && apiData.tracks.items.map(item => (
+        {sortedTracks.map(item => (
           <Track key={item.id} itemData={item} />
         ))}
       </ul>

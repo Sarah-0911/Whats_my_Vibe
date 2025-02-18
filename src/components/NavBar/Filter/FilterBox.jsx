@@ -11,22 +11,10 @@ export default function FilterBox() {
 
   const [showPopup, setShowPopup] = useState(false);
   const [items] = useState([
-    {
-      name: "Popularity",
-      icon: PopularityIcon
-    },
-    {
-      name: "Artist",
-      icon: ArtistIcon
-    },
-    {
-      name: "Track",
-      icon: TrackIcon
-    },
-    {
-      name: "Album",
-      icon: AlbumIcon
-    },
+    { name: "Popularity", icon: PopularityIcon, category: "popularity"},
+    { name: "Artist", icon: ArtistIcon, category: "artist" },
+    { name: "Track", icon: TrackIcon, category: "track" },
+    { name: "Album", icon: AlbumIcon, category: "album" },
   ])
 
   return (
@@ -44,7 +32,8 @@ export default function FilterBox() {
       {showPopup && <div className="absolute top-10 -left-10 bg-slate-100 rounded p-2 min-w-[220px]">
         <div className="grid grid-cols-2 gap-2">
           {items.map((item, index) => {
-            return <FilterItem key={index} name={item.name} icon={React.createElement(item.icon)} />
+            return <FilterItem key={index} name={item.name} category={item.category}
+            icon={React.createElement(item.icon)} />
           })
           }
         </div>

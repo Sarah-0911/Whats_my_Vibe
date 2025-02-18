@@ -9,7 +9,7 @@ export default function UserContextProvider(props) {
   const [searchQuery, setSearchQuery] = useState("");
   const [loader, setLoader] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
-  const [sortCategory, setSortCategory] = useState("");
+  const [sortCategory, setSortCategory] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
