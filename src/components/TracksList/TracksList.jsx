@@ -60,9 +60,10 @@ export default function TracksList () {
       hover:before:w-full hover:text-slate-900 ${noMoreMatches ? "hidden" : ""}`}
       style={{fontVariant: "small-caps"}}>
         <span className="relative z-10">Show More</span>
-    </button>
-    {noMoreMatches && <p className="text-orange-200 font-manrope text-center font-semibold text-lg animate-fadeIn animate-bounce">
-      No more tracks to show !
+      </button>
+      {noMoreMatches &&
+      <p className="text-orange-200 font-manrope text-center font-semibold text-lg animate-fadeIn animate-bounce">
+        No more tracks to show !
       </p>}
     </ div>
   )

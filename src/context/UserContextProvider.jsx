@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { UserContext } from "./UserContext";
 import getSpotifyToken from "../utils/spotifyAuth"
 
@@ -10,6 +10,8 @@ export default function UserContextProvider(props) {
   const [loader, setLoader] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
   const [sortCategory, setSortCategory] = useState(null);
+  const tracksListRef = useRef(null);
+
 
   useEffect(() => {
     let isMounted = true;
@@ -31,7 +33,7 @@ export default function UserContextProvider(props) {
   }, [tokenData])
 
   return (
-    <UserContext.Provider value={{ tokenData, apiData, setApiData, loader, setLoader, errorMsg, setErrorMsg, searchQuery, setSearchQuery, sortCategory, setSortCategory }}>
+    <UserContext.Provider value={{ tokenData, apiData, setApiData, loader, setLoader, errorMsg, setErrorMsg, searchQuery, setSearchQuery, sortCategory, setSortCategory, tracksListRef }}>
       {props.children}
     </UserContext.Provider>
   )

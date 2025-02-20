@@ -5,11 +5,10 @@ import MainContent from "./layouts/MainContent";
 
 function App () {
 
-    const { apiData } = useContext(UserContext);
-    const tracksListRef = useRef(null);
+    const { apiData, tracksListRef } = useContext(UserContext);
 
     const scrollToTracksList = () => {
-      if (tracksListRef.current) tracksListRef.current.scrollIntoView({ behavior: "smooth" });
+      if (tracksListRef.current) tracksListRef.current.scrollIntoView({ behavior: "instant" });
     }
 
     useEffect(() => {
