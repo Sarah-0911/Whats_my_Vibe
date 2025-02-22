@@ -20,11 +20,11 @@ export default function FilterItem({ name, icon, category }) {
   return (
     <button
     onClick={handleClick}
-    className={`group flex flex-col items-center justify-center gap-2 w-24 h-24 p-4 rounded border transition-all duration-300 ease-in-out hover:bg-slate-300 ${isSelected ? "bg-slate-300" : "bg-slate-200"}`}>
-      <span className={`group-hover:text-orange-500 ${isSelected ? "text-orange-500" : "text-gray-800"} transition-all duration-300 ease-in-out`}>
+    className={`group flex flex-col border-[hsl(0,0%,20%)] items-center justify-center gap-2 w-24 h-24 p-4 rounded border transition-all duration-300 ease-in-out hover:bg-[#e06b4d] ${isSelected ? "bg-[#e06b4d]" : "bg-[hsl(0,0%,12%)]"}`}>
+      <span className={`group-hover:text-amber-100 ${isSelected ? "text-amber-100" : "text-slate-200"} transition-all duration-300 ease-in-out`}>
         {icon}
       </span>
-      <p className={`font-sans font-normal text-sm  tracking-wide group-hover:text-orange-500 ${isSelected ? "text-orange-500" : "text-gray-800"} transition-all duration-300 ease-in-out`}>
+      <p className={`font-sans font-normal text-sm tracking-wide group-hover:text-amber-100 ${isSelected ? "text-amber-100" : "text-slate-200"} transition-all duration-300 ease-in-out`}>
         {name}
       </p>
     </button>

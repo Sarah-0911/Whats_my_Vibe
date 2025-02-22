@@ -13,7 +13,7 @@ export default function Header() {
       <h1 className='text-slate-900 font-medium font-limelight uppercase text-5xl md:text-7xl drop-shadow-lg'>
         What&apos;s my vibe
       </h1>
-      <p className="mt-1 font-poiret font-semibold text-lg md:text-3xl drop-shadow-sm tracking-wider text-orange-200">
+      <p className="mt-1 font-poiret font-semibold text-lg md:text-3xl drop-shadow-sm tracking-wider text-amber-100">
         generate tracks from your words.
       </p>
       <SearchInput />

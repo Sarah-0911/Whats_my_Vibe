@@ -29,7 +29,7 @@ export default function FilterBox() {
         <span className="ml-1 uppercase">Sort by</span>
       </button>
 
-      {showPopup && <div className="absolute top-10 -left-10 bg-slate-100 rounded p-2 min-w-[220px]">
+      {showPopup && <div className="absolute top-10 -left-10 bg-[hsl(0,0%,12%)] rounded p-2 min-w-[220px]">
         <div className="grid grid-cols-2 gap-2">
           {items.map((item, index) => {
             return <FilterItem key={index} name={item.name} category={item.category}
