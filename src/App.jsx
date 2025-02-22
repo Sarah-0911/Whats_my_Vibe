@@ -17,7 +17,7 @@ function App () {
 
 
   return (
-    <div className="bg-slate-800 min-h-screen">
+    <div className="bg-[#171717] min-h-screen">
       <Header />
       {apiData && <MainContent ref={tracksListRef} />}
     </div>

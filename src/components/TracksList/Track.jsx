@@ -6,9 +6,9 @@ export default function Track({ itemData }) {
   // console.log(itemData);
 
   return (
-    <li className="flex flex-col p-4 pb-2 overflow-hidden bg-gradient-to-b from-slate-600 to-black rounded-lg transition-all duration-300">
+    <li className="flex flex-col p-4 pb-2 overflow-hidden rounded bg-[hsl(0,0%,12%)] transition-all duration-300">
       <img
-      className="rounded-sm mx-auto shadow-md shadow-slate-900"
+      className="rounded-sm mx-auto shadow-lg shadow-slate-950 w-full"
       src={itemData.album.images[1].url}
       alt={`${itemData.album.name} ${itemData.album.type}`}
       />
@@ -35,3 +35,6 @@ export default function Track({ itemData }) {
     </li>
   )
 }
+
+
+// #6F988A (vert wtsa)

@@ -26,7 +26,7 @@ export default function FilterBox() {
         className="w-6 h-5 group-hover:scale-110 duration-200"
         src={filter}
         alt="filter icon" />
-        <span className="ml-1">Sort by</span>
+        <span className="ml-1 uppercase">Sort by</span>
       </button>
 
       {showPopup && <div className="absolute top-10 -left-10 bg-slate-100 rounded p-2 min-w-[220px]">
