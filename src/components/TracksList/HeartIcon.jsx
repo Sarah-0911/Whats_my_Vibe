@@ -8,7 +8,7 @@ export default function HeartIcon() {
 
   return (
     <img
-    className="w-3 cursor-pointer hover:scale-125 duration-300 ease-in-out"
+    className="w-3 cursor-pointer duration-300 ease-in-out"
     onClick={() => setIsFavorite(!isFavorite)}
     src={isFavorite ? fullHeart : emptyHeart}
     alt="heart icon"
