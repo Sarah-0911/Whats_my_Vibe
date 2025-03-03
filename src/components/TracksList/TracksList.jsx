@@ -1,69 +1,58 @@
 import Track from "./Track"
-import { useState, useContext } from "react"
+import { useState, useEffect, useContext, useRef } from "react"
 import { UserContext } from "../../context/UserContext";
-// import fetchTracks from "../../utils/spotifyApi"
 
 export default function TracksList () {
 
-  // const [offsetData, setOffsetData] = useState(0);
-  const { tokenData, searchQuery, apiData, setApiData, sortCategory } = useContext(UserContext);
+  const [hasMoreTracks, setHasMoreTracks] = useState(true);
+  const { apiData, sortCategory } = useContext(UserContext);
 
-  const sortedTracks = apiData?.tracks?.items ? [...apiData.tracks.items].sort((a, b) => {
-    switch(sortCategory) {
-      case "popularity":
-        return (b?.popularity || 0) - (a?.popularity || 0);
-      case "artist":
-        return (a?.artists?.[0]?.name || '').localeCompare(b?.artists?.[0]?.name || '');
-      case "track":
-        return (a?.name || '').localeCompare(b?.name || '');
-      case "album":
-        return (a?.album?.name || '').localeCompare(b?.album?.name || '');
-      default:
-        return 0;
+  console.log(apiData);
+  
+
+  const tracksListRef = useRef(null);
+  const newTracksRef = useRef(null);
+
+  const sortFunctions = {
+    popularity: (a, b) => (b?.popularity || 0) - (a?.popularity || 0),
+    artist: (a, b) => (a?.artists?.[0]?.name || '').localeCompare(b?.artists?.[0]?.name || ''),
+    track: (a, b) => (a?.name || '').localeCompare(b?.name || ''),
+    album: (a, b) => (a?.album?.name || '').localeCompare(b?.album?.name || '')
+  };
+
+  const sortedTracks = apiData?.tracks?.items 
+  ? [...apiData.tracks.items].sort(sortFunctions[sortCategory] || (() => 0))
+  : [];
+
+  useEffect(() => {
+    if (sortCategory && tracksListRef?.current) {
+      requestAnimationFrame(() => {
+        const yOffset = -100;
+        const element = tracksListRef.current;
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+      });
     }
-  }) : [];
-
-  // const handleShowMore = async() => {
-  //   const newOffset = offsetData + 10;
-  //   setOffsetData(newOffset);
-
-  //   if (searchQuery){
-  //     const data = await fetchTracks(tokenData.accessToken, searchQuery, newOffset);
-
-  //     setApiData(prevState => ({
-  //       ...prevState,
-  //       tracks: {
-  //         ...prevState.tracks,
-  //         items: [...prevState.tracks.items, ...data.tracks.items]
-  //       }
-  //     }))
-  //   }
-  //   console.log(newOffset);
-  // }
-
-  // const noMoreMatches = offsetData >= apiData.tracks.total;
+  }, [sortCategory, sortedTracks]);
 
   return (
-    <div>
+    <div ref={tracksListRef}>
       <ul
       className="px-8 pt-2 pb-8 grid grid-cols-2 min-[450px]:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
         {sortedTracks.map(item => (
           <Track key={item.id} itemData={item} />
         ))}
       </ul>
-      {/* <button
-      onClick={handleShowMore}
-      className={`block mx-auto relative mt-4 rounded-full z-50 text-xl font-semibold lowercase font-manrope px-8   py-2 bg-slate-900 text-orange-200 overflow-hidden
-      before:absolute before:inset-0 before:bg-orange-200
-      before:w-0 before:duration-500 before:ease-in-out
-      hover:before:w-full hover:text-slate-900 ${noMoreMatches ? "hidden" : ""}`}
-      style={{fontVariant: "small-caps"}}>
-        <span className="relative z-10">Show More</span>
-      </button>
-      {noMoreMatches &&
+      <div ref={newTracksRef} className="pt-4">
+      {!hasMoreTracks &&
       <p className="text-orange-200 font-manrope text-center font-semibold text-lg animate-fadeIn animate-bounce">
         No more tracks to show !
-      </p>} */}
+      </p>}
+      </div>
     </ div>
   )
 }

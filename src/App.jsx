@@ -5,21 +5,21 @@ import MainContent from "./layouts/MainContent";
 
 function App () {
 
-    const { apiData, tracksListRef } = useContext(UserContext);
+  const { apiData, mainRef } = useContext(UserContext);
 
-    const scrollToTracksList = () => {
-      if (tracksListRef.current) tracksListRef.current.scrollIntoView({ behavior: "instant" });
-    }
+  const scrollToTracksList = () => {
+    if (mainRef.current) mainRef.current.scrollIntoView({ behavior: "smooth" });
+  }
 
-    useEffect(() => {
-      if (apiData?.tracks?.items?.length <= 10) scrollToTracksList();
-    }, [apiData])
+  useEffect(() => {
+    if (apiData?.tracks?.items) scrollToTracksList();
+  }, [apiData])
 
 
   return (
     <div className="bg-[#171717] min-h-screen">
       <Header />
-      {apiData && <MainContent ref={tracksListRef} />}
+      {apiData && <MainContent ref={mainRef} />}
     </div>
   )
 }

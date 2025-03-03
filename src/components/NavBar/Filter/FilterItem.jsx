@@ -3,24 +3,18 @@ import { UserContext } from "../../../context/UserContext"
 
 export default function FilterItem({ name, icon, category }) {
 
-  const { sortCategory, setSortCategory, tracksListRef } = useContext(UserContext);
+  const { sortCategory, setSortCategory } = useContext(UserContext);
+
   const isSelected = sortCategory === category;
 
   const handleClick = () => {
-    setSortCategory(isSelected ? null : category)  // Si le bouton est déjà sélectionné, on désactive le tri (null).
-
-    setTimeout(() => {
-      if (tracksListRef?.current) {
-        tracksListRef.current.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 50);
-
+    setSortCategory(isSelected ? null : category); // Si le bouton est déjà sélectionné, on désactive le tri (null).
   }
 
   return (
     <button
     onClick={handleClick}
-    className={`group flex flex-col border-[hsl(0,0%,20%)] items-center justify-center gap-2 w-24 h-24 p-4 rounded border transition-all duration-300 ease-in-out hover:bg-[#e06b4d] ${isSelected ? "bg-[#e06b4d]" : "bg-[hsl(0,0%,12%)]"}`}>
+    className={`relative group flex flex-col border-[hsl(0,0%,20%)] items-center justify-center gap-2 w-24 h-24 p-4 rounded border transition-all duration-300 ease-in-out hover:bg-[#e06b4d] ${isSelected ? "bg-[#e06b4d]" : "bg-[hsl(0,0%,12%)]"}`}>
       <span className={`group-hover:text-amber-100 ${isSelected ? "text-amber-100" : "text-slate-200"} transition-all duration-300 ease-in-out`}>
         {icon}
       </span>

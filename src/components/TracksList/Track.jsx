@@ -1,34 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
 import HeartIcon from "./HeartIcon"
 import neutralVinyl from "../../assets/neutralVinyl.jpg"
 import spotifyIcon from "../../assets/spotify.png"
-// import vinyl from "../../assets/vinyl.svg"
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-
+// import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 export default function Track({ itemData }) {
   
   const [isLoading, setIsLoading] = useState(true);
 
-  const dotLottie = <DotLottieReact 
-    src="https://lottie.host/593cfd5d-abe7-41cd-9690-959b0c86eae6/bfjcuW1s4G.lottie" 
-    loop 
-    autoplay />
-  
   const imageUrl = itemData?.album?.images?.[1]?.url || neutralVinyl;
   const albumName = itemData?.album?.name || 'Album';
   const albumType = itemData?.album?.type || 'album';
 
+  useEffect(() => {
+    setIsLoading(false);
+  }, [imageUrl]);
+
 
   return (
     <li className="flex flex-col p-4 pb-2 overflow-hidden rounded bg-[hsl(0,0%,12%)] transition-all duration-300">
-      <div className="w-full flex items-center justify-center aspect-square bg-[hsl(0,0%,15%)] rounded-sm">
+      <div className="w-full aspect-square bg-[hsl(0,0%,15%)] rounded-sm">
+        {/* {isLoading && (
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="w-[40%] h-[40%]">
+              <DotLottieReact 
+                src="https://lottie.host/593cfd5d-abe7-41cd-9690-959b0c86eae6/bfjcuW1s4G.lottie" 
+                loop 
+                autoplay 
+              />
+            </div>
+          </div>
+        )} */}
         <img
-          className={`w-full h-full object-cover rounded-sm mx-auto shadow-lg shadow-slate-950 transition-opacity duration-500 ${isLoading ? "opacity-0" : "opacity-100"}`}
+           className={`w-full h-full object-cover rounded-sm mx-auto shadow-lg shadow-slate-950 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
           src={imageUrl}
           alt={`${albumName} ${albumType}`}
-          onLoad={() => setIsLoading(false)}
         />
       </div>
 
@@ -55,6 +62,3 @@ export default function Track({ itemData }) {
     </li>
   )
 }
-
-
-// #6F988A (vert wtsa)

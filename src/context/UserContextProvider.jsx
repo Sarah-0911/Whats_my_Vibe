@@ -10,8 +10,7 @@ export default function UserContextProvider(props) {
   const [loader, setLoader] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
   const [sortCategory, setSortCategory] = useState(null);
-  const tracksListRef = useRef(null);
-
+  const mainRef = useRef(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -33,7 +32,7 @@ export default function UserContextProvider(props) {
   }, [tokenData])
 
   return (
-    <UserContext.Provider value={{ tokenData, apiData, setApiData, loader, setLoader, errorMsg, setErrorMsg, searchQuery, setSearchQuery, sortCategory, setSortCategory, tracksListRef }}>
+    <UserContext.Provider value={{ tokenData, apiData, setApiData, loader, setLoader, errorMsg, setErrorMsg, searchQuery, setSearchQuery, sortCategory, setSortCategory, mainRef }}>
       {props.children}
     </UserContext.Provider>
   )
