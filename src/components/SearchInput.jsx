@@ -1,11 +1,10 @@
 import { useContext } from "react"
-import { UserContext } from "../context/UserContext";
+import { DataContext, UIContext } from "../context/UserContext";
 import fetchTracks from "../utils/spotifyApi";
 
 export default function SearchInput() {
-
-  const { tokenData, setApiData, setLoader, setErrorMsg, searchQuery, setSearchQuery } = useContext(UserContext);
-
+  const { tokenData, setApiData } = useContext(DataContext);
+  const { searchQuery, setSearchQuery, setLoader, setErrorMsg } = useContext(UIContext);
   
   const handleSubmit = async (e) => {
     e.preventDefault();

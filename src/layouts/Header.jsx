@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { UIContext } from "../context/UserContext";
 import SearchInput from "../components/SearchInput";
 import Doodle from "../components/Doodle";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 export default function Header() {
 
-  const { loader, errorMsg } = useContext(UserContext);
+  const { loader, errorMsg } = useContext(UIContext);
 
   return (
     <div className="flex flex-col justify-center relative h-screen pt-28 px-6 bg-gradient-to-t from-[#e06b4d] to-[#d87b5a] text-center shadow-[0_0_15px_5px_#000000]">

@@ -1,14 +1,12 @@
 import Track from "./Track"
 import { useState, useEffect, useContext, useRef } from "react"
-import { UserContext } from "../../context/UserContext";
+import { DataContext, UIContext } from "../../context/UserContext";
 
 export default function TracksList () {
 
   const [hasMoreTracks, setHasMoreTracks] = useState(true);
-  const { apiData, sortCategory } = useContext(UserContext);
-
-  console.log(apiData);
-  
+  const { apiData } = useContext(DataContext);
+  const { sortCategory } = useContext(UIContext);
 
   const tracksListRef = useRef(null);
   const newTracksRef = useRef(null);

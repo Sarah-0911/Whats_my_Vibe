@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { UserContext } from "../../../context/UserContext"
+import { UIContext } from "../../../context/UserContext"
 
 export default function FilterItem({ name, icon, category }) {
 
-  const { sortCategory, setSortCategory } = useContext(UserContext);
+  const { sortCategory, setSortCategory } = useContext(UIContext);
 
   const isSelected = sortCategory === category;
 
