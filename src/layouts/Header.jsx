@@ -9,7 +9,7 @@ export default function Header() {
   const { loader, errorMsg } = useContext(UIContext);
 
   return (
-    <div className="flex flex-col justify-center relative h-screen pt-28 px-6 bg-gradient-to-t from-[#e06b4d] to-[#d87b5a] text-center shadow-[0_0_15px_5px_#000000]">
+    <div className="flex flex-col justify-center relative h-[100dvh] pt-28 px-6 bg-gradient-to-t from-[#e06b4d] to-[#d87b5a] text-center shadow-[0_0_15px_5px_#000000]">
       <h1 className='text-slate-900 font-medium font-limelight uppercase text-5xl md:text-7xl drop-shadow-lg'>
         What&apos;s my vibe
       </h1>
