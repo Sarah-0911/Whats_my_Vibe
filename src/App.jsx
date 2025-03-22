@@ -8,7 +8,15 @@ function App () {
   const { mainRef } = useContext(UIContext);
 
   const scrollToTracksList = () => {
-    if (mainRef.current) mainRef.current.scrollIntoView({ behavior: "smooth" });
+    if (mainRef.current) {
+      const element = mainRef.current;
+      const y = element.getBoundingClientRect().top + window.scrollY;
+      
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+    }
   }
 
   useEffect(() => {

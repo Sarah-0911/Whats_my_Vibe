@@ -12,6 +12,7 @@ export default function AppContextProvider(props) {
   const [loader, setLoader] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
   const [sortCategory, setSortCategory] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
   const mainRef = useRef(null);
 
   useEffect(() => {
@@ -43,7 +44,9 @@ export default function AppContextProvider(props) {
         setErrorMsg,
         sortCategory,
         setSortCategory,
-        mainRef 
+        mainRef,
+        showPopup,
+        setShowPopup
       }}>
         {props.children}
       </UIContext.Provider>
