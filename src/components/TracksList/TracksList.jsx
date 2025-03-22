@@ -40,7 +40,7 @@ export default function TracksList () {
   return (
     <div ref={tracksListRef}>
       <ul
-      className="px-8 pt-2 pb-8 grid grid-cols-2 min-[450px]:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+      className="px-4 pt-2 pb-8 grid grid-cols-2 min-[450px]:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
         {sortedTracks.map(item => (
           <Track key={item.id} itemData={item} />
         ))}
